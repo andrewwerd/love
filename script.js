@@ -1,8 +1,9 @@
 const fireworksContainer = document.querySelector('.fireworks');
 const yesBtn = document.getElementById('yes-btn');
 const loveBtn = document.getElementById('love-btn');
+const responseBlock = document.getElementById('response-block');
 const responseText = document.getElementById('response');
-const questionBlock = document.getElementById('question');
+const questionBlock = document.getElementById('question-block');
 
 function createFirework() {
     const randomNumber = Math.floor(Math.random() * 10) + 1;
@@ -29,21 +30,24 @@ setInterval(createFirework, 100);
 
 // Анимация кнопок
 yesBtn.addEventListener('click', () => {
-    showResponse()
+    showResponse(false)
 });
 
 loveBtn.addEventListener('click', () => {
-    showResponse()
+    showResponse(true)
 });
 
 // Запускаем дополнительные фейерверки при нажатии кнопки
-function showResponse() {
+function showResponse(flag) {
+    if (flag) {
+        responseText.innerHTML  = 'В этот День Святого Валентина хочу подарить тебе не только свою любовь, но и самые нежные моменты, которые будут в нашей памяти долго после того, как этот день закончится.'
+    }
     questionBlock.style.opacity = 0;
     setTimeout(() => {
         questionBlock.style.display = 'none'
-        responseText.style.display = 'block'
+        responseBlock.style.display = 'block'
         setTimeout(() => {
-            responseText.style.opacity = 1;
+            responseBlock.style.opacity = 1;
         }, 500)
     }, 500)
 }

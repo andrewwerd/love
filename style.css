@@ -145,17 +145,17 @@ button {
     transform: scale(1.1);
 }
 
-#response {
+#response-block {
     display: none;
     font-size: 20px;
     color: #ff4d4d;
     margin-top: 20px;
     opacity: 0;
-    height: 105px;
+    min-height: 105px;
     transition: opacity 0.5s ease-in-out;
 }
 
-#question { 
+#question-block { 
     height: 105px;
     margin-top: 20px;
     opacity: 1;
