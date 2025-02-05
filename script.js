@@ -38,7 +38,12 @@ loveBtn.addEventListener('click', () => {
 
 // Запускаем дополнительные фейерверки при нажатии кнопки
 function showResponse() {
-    responseText.style.opacity = 1;
-    responseText.style.display = 'block';
-    questionBlock.style.display = 'none'
+    questionBlock.style.opacity = 0;
+    setTimeout(() => {
+        questionBlock.style.display = 'none'
+        responseText.style.display = 'block'
+        setTimeout(() => {
+            responseText.style.opacity = 1;
+        }, 500)
+    }, 500)
 }
