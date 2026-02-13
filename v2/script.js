@@ -83,7 +83,7 @@ function createFlowers() {
             setTimeout(() => {
                 flower.remove();
             }, 5000);
-        }, i * 10);
+        }, i * 20);
     }
 }
 
