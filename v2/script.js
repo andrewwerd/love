@@ -62,7 +62,6 @@ function celebrateWithConfetti() {
         }, i * 150);
     }
 }
-
 // Create flowers animation
 function createFlowers() {
     const flowers = ['🌹', '🌷', '🌸', '🌻', '🌺'];
