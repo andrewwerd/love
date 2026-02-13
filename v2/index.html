@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️ Валентинка ❤️</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="hearts-background">
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+        </div>
+
+        <div class="content">
+            <h1 class="title">❤️ С Днём Святого Валентина! ❤️</h1>
+
+            <div class="card" onclick="cardClick()">
+                <div class="card-header">
+                    <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </div>
+
+                <div class="card-content">
+                    <p class="message">
+                        Я очень тебя люблю, моя родная<br>
+                        Ты весь мир и я мечтаю быть с тобой
+                    </p>
+                </div>
+
+                <div class="floating-hearts">
+                    <span class="float-heart">💌</span>
+                    <span class="float-heart">💝</span>
+                    <span class="float-heart">💕</span>
+                    <span class="float-heart">💖</span>
+                    <span class="float-heart">💗</span>
+                </div>
+                
+                <p class="card-hint">Нажми на меня 💕</p>
+            </div>
+
+            <div class="buttons">
+                <button class="btn btn-primary" onclick="showMessage()">Показать сюрприз</button>
+            </div>
+
+            <div class="surprise-message" id="surpriseMessage">
+                <p>Пусть в твоём сердце всегда будет место для любви, радости и счастья! 🌹</p>
+            </div>
+            
+            <div class="special-message" id="specialMessage">
+                <p>✨ С тобой каждый день - праздник ✨</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Made with ❤️ for someone special</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

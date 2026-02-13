@@ -1,0 +1,615 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Falling hearts background */
+.hearts-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 2rem;
+    animation: fall 8s infinite linear;
+}
+
+.heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.heart:nth-child(2) {
+    left: 20%;
+    animation-delay: 1s;
+}
+
+.heart:nth-child(3) {
+    left: 50%;
+    animation-delay: 2s;
+}
+
+.heart:nth-child(4) {
+    left: 70%;
+    animation-delay: 3s;
+}
+
+.heart:nth-child(5) {
+    left: 80%;
+    animation-delay: 4s;
+}
+
+.heart::before {
+    content: "❤";
+}
+
+@keyframes fall {
+    from {
+        top: -20px;
+        opacity: 0;
+    }
+    to {
+        top: 100vh;
+        opacity: 1;
+    }
+}
+
+/* Main content */
+.content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+    word-break: break-word;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 30px 25px;
+    margin: 15px 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(30px);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    animation: cardPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes cardPop {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.card-header {
+    margin-bottom: 20px;
+}
+
+.heart-icon {
+    width: 60px;
+    height: 60px;
+    color: #e74c3c;
+    animation: heartBeat 1.3s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.3);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.card-content {
+    margin: 30px 0;
+}
+
+.message {
+    font-size: 1.2rem;
+    color: #764ba2;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+.card-hint {
+    font-size: 0.9rem;
+    color: rgba(118, 75, 162, 0.6);
+    margin-top: 15px;
+    animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.floating-hearts {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.float-heart {
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.float-heart:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.float-heart:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.float-heart:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.float-heart:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+.float-heart:nth-child(5) {
+    animation-delay: 1.2s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 18px 35px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-height: 50px;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    box-shadow: 0 10px 25px rgba(231, 76, 60, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(231, 76, 60, 0.6);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(52, 152, 219, 0.6);
+}
+
+.btn-secondary:active {
+    transform: translateY(-1px);
+}
+
+.btn-music {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    box-shadow: 0 10px 25px rgba(243, 156, 18, 0.4);
+    min-width: 50px;
+    padding: 18px;
+    font-size: 1.2rem;
+}
+
+.btn-music:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 35px rgba(243, 156, 18, 0.6);
+}
+
+.btn-music.playing {
+    animation: musicPulse 0.6s ease-in-out;
+}
+
+@keyframes musicPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+/* Surprise message */
+.surprise-message {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    color: #764ba2;
+    font-size: 1.2rem;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.surprise-message.show {
+    opacity: 1;
+    max-height: 200px;
+    animation: slideDown 0.5s ease;
+}
+
+.surprise-message p {
+    margin: 0;
+}
+
+/* Special message */
+.special-message {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(230, 126, 34, 0.8);
+    border-radius: 12px;
+    color: white;
+    font-size: 1.1rem;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.special-message.show {
+    opacity: 1;
+    max-height: 150px;
+    animation: slideDown 0.5s ease;
+}
+
+.special-message p {
+    margin: 0;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+.footer {
+    position: relative;
+    z-index: 10;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-top: 40px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        padding: 25px 20px;
+        margin: 12px 0;
+        border-radius: 15px;
+    }
+
+    .card-header {
+        margin-bottom: 15px;
+    }
+
+    .message {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 12px;
+        margin: 25px 0;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 16px 25px;
+        font-size: 0.95rem;
+        min-height: 48px;
+        min-width: unset;
+    }
+
+    .btn-music {
+        width: auto;
+        min-width: 50px;
+    }
+
+    .floating-hearts {
+        gap: 12px;
+        margin: 20px 0;
+    }
+
+    .float-heart {
+        font-size: 1.5rem;
+    }
+
+    .surprise-message {
+        margin-top: 20px;
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+
+    .special-message {
+        margin-top: 15px;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .heart-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .footer {
+        font-size: 0.8rem;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .container {
+        padding: 12px;
+        justify-content: space-around;
+    }
+
+    .title {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    .card {
+        padding: 20px 15px;
+        margin: 10px 0;
+        border-radius: 12px;
+    }
+
+    .card-header {
+        margin-bottom: 12px;
+    }
+
+    .card-content {
+        margin: 20px 0;
+    }
+
+    .message {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .card-hint {
+        font-size: 0.85rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+        margin: 20px 0;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 0.9rem;
+        min-height: 44px;
+        letter-spacing: 0.5px;
+    }
+
+    .btn-music {
+        width: auto;
+        min-width: 45px;
+        padding: 14px;
+    }
+
+    .floating-hearts {
+        gap: 10px;
+        margin: 15px 0;
+    }
+
+    .float-heart {
+        font-size: 1.3rem;
+    }
+
+    .surprise-message {
+        margin-top: 15px;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .surprise-message.show {
+        max-height: 250px;
+    }
+
+    .special-message {
+        margin-top: 12px;
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .special-message.show {
+        max-height: 150px;
+    }
+
+    .heart-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .footer {
+        font-size: 0.75rem;
+        margin-top: 25px;
+    }
+
+    /* Reduce heart size on mobile */
+    .heart {
+        font-size: 1.5rem;
+    }
+
+    .heart::before {
+        content: "❤";
+    }
+}
+
+/* Dynamic heart creation */
+.dynamic-heart {
+    position: fixed;
+    pointer-events: none;
+    font-size: 2rem;
+    animation: floatUp 2s ease-out forwards;
+    z-index: 100;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0) translateX(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) translateX(var(--tx)) scale(0);
+    }
+}
+
+/* Flowers animation */
+.flower {
+    position: fixed;
+    pointer-events: none;
+    font-size: 3rem;
+    animation: flowerFall 5s ease-in forwards;
+    z-index: 200;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes flowerFall {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotateZ(0deg) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) rotateZ(360deg) scale(0.3);
+    }
+}
